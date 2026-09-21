@@ -1,12 +1,1601 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Как Егор Кривецкий провел лето</title>
+    <meta name="description" content="Мой летний дневник: учёба, армия и работа в Минске.">
+    <title>Как я провёл лето — 2026</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Шрифт -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --text: #1f2937;
+            --muted: #6b7280;
+
+            --purple: #6d5dfc;
+            --green: #10b981;
+            --orange: #f59e0b;
+
+            --dark: #111827;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(109, 93, 252, 0.10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(16, 185, 129, 0.08),
+                    transparent 22%
+                ),
+                var(--bg);
+
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: rgba(17, 24, 39, 0.88) !important;
+            backdrop-filter: blur(15px);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-link {
+            font-weight: 500;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 88vh;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 75% 25%,
+                    rgba(139, 92, 246, 0.35),
+                    transparent 22%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(16, 185, 129, 0.18),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #17152f,
+                    #33246d 55%,
+                    #17152f
+                );
+        }
+
+        /* Декоративные круги */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            top: -160px;
+            right: -100px;
+
+            background: rgba(139, 92, 246, 0.18);
+
+            filter: blur(5px);
+
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            bottom: -130px;
+            left: -80px;
+
+            background: rgba(45, 212, 191, 0.15);
+
+            animation: float 7s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            padding: 8px 14px;
+
+            margin-bottom: 20px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+
+            line-height: 0.95;
+
+            letter-spacing: -0.07em;
+
+            font-weight: 800;
+
+            margin-bottom: 28px;
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            color: rgba(255,255,255,0.82);
+
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+
+            line-height: 1.7;
+        }
+
+        .hero-btn {
+            border: none;
+
+            border-radius: 14px;
+
+            padding: 13px 23px;
+
+            font-weight: 700;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.22);
+        }
+
+        /* =========================
+           ОБЩИЕ СЕКЦИИ
+        ========================= */
+
+        .section-space {
+            padding: 100px 0;
+        }
+
+        .section-kicker {
+            color: var(--purple);
+
+            font-size: 0.78rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-top: 8px;
+
+            margin-bottom: 15px;
+
+            font-size: clamp(2.2rem, 4vw, 3.3rem);
+
+            font-weight: 800;
+
+            letter-spacing: -0.05em;
+        }
+
+        .section-subtitle {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           КАРТОЧКИ МЕСЯЦЕВ
+        ========================= */
+
+        .month-card {
+            position: relative;
+
+            height: 100%;
+
+            padding: 32px;
+
+            border-radius: 26px;
+
+            border: 1px solid rgba(255,255,255,0.85);
+
+            background: rgba(255,255,255,0.78);
+
+            backdrop-filter: blur(16px);
+
+            box-shadow:
+                0 20px 55px rgba(31,41,55,0.07);
+
+            overflow: hidden;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .month-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 30px 70px rgba(31,41,55,0.14);
+        }
+
+        .month-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            right: -80px;
+            top: -80px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            opacity: 0.10;
+        }
+
+        .month-icon {
+            position: relative;
+
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 24px;
+
+            border-radius: 17px;
+
+            color: white;
+
+            background: var(--accent);
+
+            font-size: 1.1rem;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 12px 28px rgba(0,0,0,0.12);
+        }
+
+        .month-card h3 {
+            position: relative;
+
+            font-size: 1.5rem;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .month-card p {
+            position: relative;
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+        .month-link {
+            position: relative;
+
+            text-decoration: none;
+
+            color: var(--accent);
+
+            font-weight: 700;
+
+            transition: opacity .2s ease;
+        }
+
+        .month-link:hover {
+            opacity: .7;
+        }
+
+        /* =========================
+           СТАТИСТИКА
+        ========================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-top: 25px;
+        }
+
+        .stat {
+            padding: 18px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.65);
+
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 1.7rem;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin-bottom: 7px;
+        }
+
+        .stat-label {
+            color: var(--muted);
+
+            font-size: .82rem;
+        }
+
+        /* =========================
+           ИСТОРИЯ
+        ========================= */
+
+        .story-card {
+            padding: 38px;
+
+            border-radius: 28px;
+
+            background: rgba(255,255,255,0.86);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            box-shadow:
+                0 18px 50px rgba(31,41,55,0.07);
+        }
+
+        .story-badge {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            margin-bottom: 15px;
+
+            border-radius: 999px;
+
+            font-size: .75rem;
+
+            font-weight: 800;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+        }
+
+        .story-card h2 {
+            font-weight: 800;
+
+            letter-spacing: -0.05em;
+        }
+
+        .story-card p {
+            color: var(--muted);
+
+            line-height: 1.85;
+        }
+
+        /* =========================
+           ДЕКОРАТИВНЫЕ БЛОКИ
+        ========================= */
+
+        .visual-card {
+            position: relative;
+
+            min-height: 390px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            color: white;
+
+            box-shadow:
+                0 25px 65px rgba(31,41,55,0.14);
+        }
+
+        .visual-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.12);
+
+            top: -90px;
+            right: -80px;
+        }
+
+        .visual-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.08);
+
+            bottom: -70px;
+            left: -50px;
+        }
+
+        .visual-icon {
+            position: relative;
+            z-index: 2;
+
+            width: 100px;
+            height: 100px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 25px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.13);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 2.8rem;
+        }
+
+        .visual-card h3 {
+            position: relative;
+            z-index: 2;
+
+            font-size: 1.7rem;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+        .visual-card p {
+            position: relative;
+            z-index: 2;
+
+            max-width: 400px;
+
+            margin: 0;
+
+            color: rgba(255,255,255,0.78);
+
+            line-height: 1.7;
+        }
+
+        /* Цвета */
+
+        .visual-june {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,.15),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #5547d8,
+                    #7d6df4
+                );
+        }
+
+        .visual-july {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,.15),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #087f5b,
+                    #10b981
+                );
+        }
+
+        .visual-august {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,.15),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #c77700,
+                    #f59e0b
+                );
+        }
+
+        /* =========================
+           ДОПОЛНИТЕЛЬНАЯ ЛИНИЯ
+        ========================= */
+
+        .timeline {
+            position: relative;
+
+            margin-top: 35px;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 10px;
+            bottom: 10px;
+
+            width: 2px;
+
+            background:
+                linear-gradient(
+                    #6d5dfc,
+                    #10b981,
+                    #f59e0b
+                );
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 50px;
+
+            margin-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 5px;
+            top: 4px;
+
+            width: 22px;
+            height: 22px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            border: 5px solid var(--accent);
+
+            z-index: 2;
+        }
+
+        .timeline-item h5 {
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+
+            margin: 0;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           ИТОГ
+        ========================= */
+
+        .final-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 50px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(109,93,252,0.35),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #33276b
+                );
+
+            box-shadow:
+                0 25px 70px rgba(24,20,60,0.24);
+        }
+
+        .final-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            right: -100px;
+            bottom: -120px;
+
+            background: rgba(255,255,255,0.06);
+        }
+
+        .final-card p {
+            color: rgba(255,255,255,0.75);
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111827;
+
+            color: white;
+        }
+
+        /* =========================
+           АНИМАЦИЯ
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: .1s;
+        }
+
+        .delay-2 {
+            transition-delay: .2s;
+        }
+
+        .delay-3 {
+            transition-delay: .3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    translateX(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-20px)
+                    translateX(10px);
+            }
+        }
+
+        /* =========================
+           МОБИЛЬНАЯ ВЕРСИЯ
+        ========================= */
+
+        @media (max-width: 767px) {
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .section-space {
+                padding: 70px 0;
+            }
+
+            .story-card {
+                padding: 27px;
+            }
+
+            .visual-card {
+                min-height: 300px;
+            }
+
+            .final-card {
+                padding: 32px 25px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.4rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#top">
+            Моё лето 2026
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Открыть меню">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#months">
+                        Месяцы
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#june">
+                        Июнь
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#july">
+                        Июль
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#august">
+                        Август
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     ГЛАВНЫЙ ЭКРАН
+
+<header id="top" class="hero">
+
+    <div class="container hero-content">
+
+        <div class="row">
+
+            <div class="col-lg-9 reveal">
+
+                <div class="eyebrow">
+                    ☀ Летний дневник · 2026
+                </div>
+
+                <h1>
+                    Как я<br>
+                    провёл лето
+                </h1>
+
+                <p class="mb-4">
+
+                    Лето я провёл смачно!
+                    Чутка поучились в июне,
+                    «побалдели» в июле в армии,
+                    ну и поработали в августе :)
+
+                </p>
+
+                <a
+                    href="#months"
+                    class="btn btn-light hero-btn">
+
+                    Вспомнить лето ↓
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     МЕСЯЦЫ
+
+<section id="months" class="section-space">
+
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+
+            <div class="section-kicker">
+                Главные события
+            </div>
+
+            <h2 class="section-title">
+                Моё лето по месяцам
+            </h2>
+
+            <p class="section-subtitle">
+
+                Три месяца — три совершенно разных
+                этапа. От учёбы и сессии до армии
+                и укладки стяжки где-то в Пинске.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- ИЮНЬ -->
+
+            <div class="col-md-4 reveal delay-1">
+
+                <article
+                    class="month-card"
+                    style="--accent:#6d5dfc;">
+
+                    <div class="month-icon">
+                        06
+                    </div>
+
+                    <h3>
+                        Июнь
+                    </h3>
+
+                    <p>
+                        Учёба, экзамены и завершение
+                        учебного года.
+                    </p>
+
+                    <a
+                        class="month-link"
+                        href="#june">
+
+                        Смотреть историю →
+
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <!-- ИЮЛЬ -->
+
+            <div class="col-md-4 reveal delay-2">
+
+                <article
+                    class="month-card"
+                    style="--accent:#10b981;">
+
+                    <div class="month-icon">
+                        07
+                    </div>
+
+                    <h3>
+                        Июль
+                    </h3>
+
+                    <p>
+                        Армия, новый распорядок,
+                        новые люди и новый опыт.
+                    </p>
+
+                    <a
+                        class="month-link"
+                        href="#july">
+
+                        Смотреть историю →
+
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <!-- АВГУСТ -->
+
+            <div class="col-md-4 reveal delay-3">
+
+                <article
+                    class="month-card"
+                    style="--accent:#f59e0b;">
+
+                    <div class="month-icon">
+                        08
+                    </div>
+
+                    <h3>
+                        Август
+                    </h3>
+
+                    <p>
+                        Поработал строителем в Пинске. Вернулся в Минск,
+                        поработал в Банке.
+                    </p>
+
+                    <a
+                        class="month-link"
+                        href="#august">
+
+                        Смотреть историю →
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ИЮНЬ
+
+<section
+    id="june"
+    class="section-space bg-white">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+
+            <div class="col-lg-6 reveal">
+
+                <span class="story-badge accent-june">
+                    Июнь
+                </span>
+
+                <h2 class="display-6 fw-bold mb-3">
+                    Учёба и сессия
+                </h2>
+
+                <p>
+
+                    В июне лето только начиналось,
+                    но полноценного отдыха, к сожалению, ещё не было.
+                    Сессия - депрессия!
+
+                </p>
+
+                <p>
+
+                    Пришлось сосредоточиться на экзаменах,
+                    ну и параллельно на работе.
+                    После сессии наконец появилось ощущение,
+                    что лето действительно началось, но это не надолго.
+
+                </p>
+
+
+                <!-- Статистика -->
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            📚
+                        </div>
+
+                        <div class="stat-label">
+                            Учёба
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            📝
+                        </div>
+
+                        <div class="stat-label">
+                            Сессия
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            ☀
+                        </div>
+
+                        <div class="stat-label">
+                            Начало лета
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 reveal delay-2">
+
+                <div class="visual-card visual-june">
+
+                    <div class="visual-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Последний рывок
+                    </h3>
+
+                    <p>
+
+                        Сначала нужно было закончить
+                        учебный год, а уже потом
+                        наслаждаться летом.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ИЮЛЬ
+
+<section
+    id="july"
+    class="section-space">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+
+            <div class="col-lg-6 order-2 order-lg-1 reveal">
+
+                <div class="visual-card visual-july">
+
+                    <div class="visual-icon">
+                        🎖
+                    </div>
+
+                    <h3>
+                        Совсем другой режим
+                    </h3>
+
+                    <p>
+
+                        Новый распорядок дня,
+                        дисциплина, физическая нагрузка
+                        и много новых впечатлений.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 order-1 order-lg-2 reveal">
+
+                <span class="story-badge accent-july">
+                    Июль
+                </span>
+
+                <h2 class="display-6 fw-bold mb-3">
+                    Армия
+                </h2>
+
+                <p>
+
+                    В июле моё лето резко изменилось —
+                    я уехал в армию. Это был совершенно
+                    новый опыт и новый этап, который сильно
+                    отличался от обычной жизни.
+
+                </p>
+
+                <p>
+
+                    Новые люди, распорядок дня, дисциплина
+                    и большое количество непривычных
+                    ситуаций сделали этот месяц
+                    особенно запоминающимся.
+
+                </p>
+
+
+                <!-- Timeline -->
+
+                <div class="timeline">
+
+                    <div
+                        class="timeline-item"
+                        style="--accent:#10b981;">
+
+                        <div class="timeline-dot"></div>
+
+                        <h5>
+                            Новый этап
+                        </h5>
+
+                        <p>
+                            Полностью изменился привычный
+                            день.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-item"
+                        style="--accent:#10b981;">
+
+                        <div class="timeline-dot"></div>
+
+                        <h5>
+                            Новые люди
+                        </h5>
+
+                        <p>
+                            Знакомства и общение
+                            с совершенно разными людьми.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-item"
+                        style="--accent:#10b981;">
+
+                        <div class="timeline-dot"></div>
+
+                        <h5>
+                            Новый опыт
+                        </h5>
+
+                        <p>
+                            Опыт, который точно
+                            не забудется.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     АВГУСТ
+
+<section
+    id="august"
+    class="section-space bg-white">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+
+            <div class="col-lg-6 reveal">
+
+                <span class="story-badge accent-august">
+                    Август
+                </span>
+
+                <h2 class="display-6 fw-bold mb-3">
+                    Минск и работа
+                </h2>
+
+                <p>
+
+                    В августе вернулся в Минск.
+                    Поработал укладчиком стяжки в Пинске и сразу рванул в Минск на работу в Банк.
+                </p>
+
+                <p>
+
+                    Понял, что лучше ходить на работу, чем просто быть в армии) 
+
+                </p>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            🏙
+                        </div>
+
+                        <div class="stat-label">
+                            Минск
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            💼
+                        </div>
+
+                        <div class="stat-label">
+                            Работа
+                        </div>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <div class="stat-number">
+                            🚀
+                        </div>
+
+                        <div class="stat-label">
+                            Новый опыт
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 reveal delay-2">
+
+                <div class="visual-card visual-august">
+
+                    <div class="visual-icon">
+                        💼
+                    </div>
+
+                    <h3>
+                        Новый старт
+                    </h3>
+
+                    <p>
+
+                        Возвращение в Минск,
+                        знакомство с настоящей рабочей строительной атмосферой.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ИТОГ
+
+<section class="section-space">
+
+    <div class="container">
+
+        <div class="final-card reveal">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-8">
+
+                    <div class="section-kicker text-white-50">
+                        Итоги
+                    </div>
+
+                    <h2 class="display-6 fw-bold mt-2">
+                        Лето, которое точно запомнится
+                    </h2>
+
+                    <p class="mb-0 mt-3">
+
+                        Я закончил учебный год и сдал сессию,
+                        получил новый жизненный опыт в армии,
+                        а затем вернулся в Минск работать.
+
+                        <br><br>
+
+                        Три месяца — три разных этапа,
+                        и каждый из них дал мне что-то новое.
+
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-4 text-lg-end">
+
+                    <a
+                        href="#top"
+                        class="btn btn-light hero-btn">
+
+                        Наверх ↑
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+
+<footer class="py-4 text-center">
+
+    <div class="container">
+
+        <p class="mb-1">
+            © 2026 · «Как я провёл лето»
+        </p>
+
+        <small class="text-white-50">
+            WEB технологии
+        </small>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+    /* =================================
+       АНИМАЦИЯ ПОЯВЛЕНИЯ
+    ================================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =================================
+       ПЛАВНАЯ НАВИГАЦИЯ
+    ================================= */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener("click", function(event) {
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            });
+
+        });
+
+</script>
+
     <h1>Как я провел лето в 2026 году</h1>
     <p>Лето я провел смачно) Сдал сессию, послужил в армии, поработал стоителем, а потом в Банке. Ну и конечно успел и отдохнуть</p>
 </body>
 </html>
+```
